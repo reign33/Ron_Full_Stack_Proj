@@ -10,7 +10,7 @@ import storage from "../utils/firebaseConfig.js";
 async function getNotesInfo(_, res, next) {
   try {
     const notes = await Note.find({});
-    const notesCount = await notes.length;
+    const notesCount = notes.length;
     return res.send(`<p>Notes App have ${notesCount} notes</p>`);
   } catch (error) {
     next(error);
@@ -20,7 +20,6 @@ async function getNotesInfo(_, res, next) {
 async function getNotes(req, res, next) {
   try {
     const decodedToken = jwt.verify(getTokenFrom(req), config.JWT_SECRET);
-
     const notes = await Note.find({ userId: decodedToken.id }).populate(
       "userId",
       {

@@ -2,9 +2,9 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import noteRouter from "./routes/noteRouter.js";
-import userRouter from "./routes/userRouter.js"
-import unknownEndpoint from "./middlewares/unknownEndPoint.js"
-import connectToDB from "./mongoConnectToDB.js";
+import userRouter from "./routes/userRouter.js";
+import unknownEndpoint from "./middlewares/unknownEndPoint.js";
+import connectToDB from "./utils/connectToDB.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import config from "./utils/config.js";
 import upload from "./utils/multer.js";
